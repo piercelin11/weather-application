@@ -10,13 +10,29 @@
     <title>Weather Application</title>
 </head>
 <body>
-    <h1>現在天氣如何？</h1>
+    <h1>明天天氣如何？</h1>
 
     <form action="/" method="POST">
-        <input type="text" name="latitude" placeholder="Latitude">
-        <input type="text" name="longitude" placeholder="longitude">
+        <input type="text" name="lat" placeholder="Latitude">
+        <input type="text" name="lon" placeholder="Longitude">
         <input type="submit" value="ENTER">
     </form>
+
+
+    <% if(locals.weather){ %>
+        <h3>summary</h3>
+        <p><%= weather %></p>
+    <% } %>
+
+    <% if(locals.rain){ %>
+        <h3>rain height</h3>
+        <p><%= rain %> mm/h</p>
+    <% } %>
+    
+    <% if(locals.error){ %>
+        <p>Failed to make request: <%= error %></p>
+    <% } %>
+    
 
 <footer>
 
